@@ -1,0 +1,13 @@
+.coffeeList{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;       /* Limite da largura total */
+    margin: 0 auto;          /* Centraliza o container */
+}
+
+.coffeeTitle{
+    padding-left: 30px;
+}
+
