@@ -1,0 +1,76 @@
+import { useState } from "react";
+import { MdAddLocationAlt } from "react-icons/md";
+import styles from "./styles.module.css";
+
+export default function Address() {
+  const [cep, setCep] = useState("");
+  const [address, setAddress] = useState({
+    rua: "",
+    bairro: "",
+    cidade: "",
+    uf: "",
+  });
+
+  const handleCepChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/\D/g, ""); // Mantém só os números
+    setCep(value);
+
+    if (value.length === 8) {
+      fetch(`https://viacep.com.br/ws/${value}/json/`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (!data.erro) {
+            setAddress({
+              rua: data.logradouro,
+              bairro: data.bairro,
+              cidade: data.localidade,
+              uf: data.uf,
+            });
+          } else {
+            alert("CEP não encontrado!");
+          }
+        })
+        .catch(() => alert("Erro ao buscar o CEP"));
+    }
+  };
+
+  return (
+    <div>
+      <p>Complete seu pedido</p>
+      <div className={styles.container}>
+        <div className={styles.inicio}>
+          <div className={styles.icon1}>
+            <MdAddLocationAlt size={30} />
+          </div>
+          <div>
+            <p>Endereço de Entrega</p>
+            <p>Informe o endereço onde deseja receber seu pedido</p>
+          </div>
+        </div>
+
+        <div className={styles.input_container}>
+          <div className={styles.cep}>
+            <input
+              type="text"
+              placeholder="CEP"
+              value={cep}
+              onChange={handleCepChange}
+            />
+          </div>
+          <div className={styles.rua}>
+            <input type="text" placeholder="Rua" value={address.rua} readOnly />
+          </div>
+          <div className={styles.numero_complemento}>
+            <input type="text" placeholder="Número" />
+            <input type="text" placeholder="Complemento" />
+          </div>
+          <div className={styles.bairro_cidade_uf}>
+            <input type="text" placeholder="Bairro" value={address.bairro} readOnly />
+            <input type="text" placeholder="Cidade" value={address.cidade} readOnly />
+            <input type="text" placeholder="UF" value={address.uf} readOnly />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

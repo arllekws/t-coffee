@@ -1,0 +1,42 @@
+.container {
+    background-color: #F3F4F2;
+    width: 620px;
+    padding: 20px;           /* Dá um respiro interno */
+    border-radius: 8px;       /* Borda mais suave */
+}
+
+input {
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0 10px;          /* Espaço interno pro texto */
+    background-color: #FAFAFA;
+}
+
+.input_container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;               /* Espaço vertical entre os grupos */
+}
+
+.numero_complemento,
+.bairro_cidade_uf {
+    display: flex;
+    gap: 20px;               /* Espaço horizontal entre os inputs */
+}
+
+.inicio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 30px;
+}
+
+.icon1 {
+    color: #C47F17;
+    font-size: 24px;          /* Deixa o ícone maior se quiser */
+}
+.rua input{
+    width: 400px;
+}

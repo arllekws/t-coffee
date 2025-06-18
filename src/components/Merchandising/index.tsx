@@ -3,7 +3,7 @@ import Icon2 from '../../assets/icon2.svg';
 import Icon3 from '../../assets/icon3.svg';
 import icon4 from '../../assets/icon4.svg';
 import styles from './styles.module.css';
-import Imagem from '../../assets/Imagem.svg';
+import Imagem from '../../assets/3rd2q.png';
 
 export default function Merchandising() {
   return (

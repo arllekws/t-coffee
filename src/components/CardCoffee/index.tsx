@@ -2,9 +2,10 @@ import styles from './styles.module.css';
 import { FaShoppingCart } from "react-icons/fa";
 import type { CardCoffeeProps } from '../../@types/CardCoffee.ts';
 import { useState } from 'react';
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 
-export default function CardCoffee({image, type, description, details, price}: CardCoffeeProps) {
+export default function CardCoffee({image, type, description, details, price, isFavorite, onToggleFavorite}: CardCoffeeProps) {
 
   const [quantity, setQuantity] = useState(1);
 
@@ -17,23 +18,43 @@ export default function CardCoffee({image, type, description, details, price}: C
   }
 
   return (
-    <div className={styles.card}>
-        <img src={image} alt={type} className={styles.coffeeImage} />
-        <h3 className={styles.coffeeType}>{type}</h3>
-        <p className={styles.coffeeDescription}>{description}</p>
-        <p className={styles.coffeeDetails}>{details}</p>
-        <div className={styles.actions}>
-            <span className={styles.coffeePrice}><span className={styles.rs}>R$</span>{price}</span>
-            <div className={styles.quantityControls}>
-              <button onClick={decreaseQuantity}>-</button>
-              <span>{quantity}</span>
-              <button onClick={increaseQuantity}>+</button>
-            </div>
-          <button className={styles.cartButton}>
-            <FaShoppingCart />
-          </button>
-        </div>
+  <div className={styles.card}>
+    <img src={image} alt={type} className={styles.coffeeImage} />
+    <h3 className={styles.coffeeType}>{type}</h3>
+    <p className={styles.coffeeDescription}>{description}</p>
+    <p className={styles.coffeeDetails}>{details}</p>
+
+    <div className={styles.actions}>
+      <span className={styles.coffeePrice}>
+        <span className={styles.rs}>R$</span>
+        {price}
+      </span>
+
+      <div className={styles.quantityControls}>
+        <button onClick={decreaseQuantity}>-</button>
+        <span>{quantity}</span>
+        <button onClick={increaseQuantity}>+</button>
+      </div>
+
+      <button className={styles.cartButton}>
+        <FaShoppingCart />
+      </button>
+
+      {/* Botão de Favorito */}
+      <button
+        onClick={onToggleFavorite}
+        className={styles.favoriteButton}
+        title="Favoritar"
+      >
+        {isFavorite ? (
+          <FaHeart color="red" size={20} />
+        ) : (
+          <FaRegHeart color="gray" size={20} />
+        )}
+      </button>
     </div>
-  )
+  </div>
+);
+
 }
 
