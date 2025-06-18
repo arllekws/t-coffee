@@ -11,3 +11,8 @@ p{
     font-family: 'Sora', sans-serif;
     font-weight: 400;
 }
+body{
+        @media (max-width: 480px){
+        max-width: 480px;
+    }
+}

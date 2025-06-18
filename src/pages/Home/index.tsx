@@ -5,6 +5,8 @@ import styles from "./styles.module.css";
 import expresso from "../../assets/coffeeImage/expresso.svg";
 import americano from "../../assets/coffeeImage/americano.svg";
 import expressoCremoso from "../../assets/coffeeImage/expressoCremoso.svg"
+import expressoGelado from "../../assets/coffeeImage/cafeGelado.svg"
+import cafeComLeite from "../../assets/coffeeImage/cafeComLeite.svg"
 
 
 
@@ -30,6 +32,20 @@ export default function Home() {
       type: "Expresso Cremoso",
       description: "Expresso Cremoso",
       details: "Café expresso tradicional com espuma cremosa. Uma versão soft do Expresso Tradicional",
+      price: 9.95
+    },
+    {
+      image: expressoGelado,
+      type: "Gelado",
+      description: "Expresso Gelado",
+      details: "Bebida preparada com café expresso e cubos de gelo. Ideal para dias muito quentes",
+      price: 9.95
+    },
+    {
+      image: cafeComLeite,
+      type: "Tradicional",
+      description: "Café com Leite",
+      details: "Meio a meio de expresso tradicional com leite vaporizado. Básico que todos gostam.",
       price: 9.95
     },
     
