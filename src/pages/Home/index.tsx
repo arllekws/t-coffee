@@ -18,20 +18,13 @@ import arabe from "../../assets/coffeeImage/arabe.svg";
 import irlandes from "../../assets/coffeeImage/irlandês.svg";
 import { CiFilter } from "react-icons/ci";
 import { useState } from "react";
+import { useFavorites } from "../../contexts/FavoriteContext";
 
 export default function Home() {
   const [selectedFilter, setSelectedFilter] = useState<string>("");
   const [showFilters, setShowFilters] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [favorites, setFavorites] = useState<string[]>([]);
 
-  const toggleFavorite = (description: string) => {
-    setFavorites((prevFavorites) =>
-      prevFavorites.includes(description)
-        ? prevFavorites.filter((fav) => fav !== description)
-        : [...prevFavorites, description]
-    );
-  };
 
   const coffeeList = [
     {
@@ -146,6 +139,8 @@ export default function Home() {
 
   // Gerando tipos únicos de café
   const uniqueTypes = [...new Set(coffeeList.map((coffee) => coffee.type))];
+
+  const { favorites, toggleFavorite } = useFavorites();
 
   // Filtrando a lista de cafés por tipo e por nome (descrição)
   const filteredCoffeeList = coffeeList.filter((coffee) => {

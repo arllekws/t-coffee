@@ -3,11 +3,25 @@ import { FaShoppingCart } from "react-icons/fa";
 import type { CardCoffeeProps } from '../../@types/CardCoffee.ts';
 import { useState } from 'react';
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+// Update the path below to the correct location of your CartContext file
+import { useCart } from '../../contexts/CartContext.tsx';
 
 
 export default function CardCoffee({image, type, description, details, price, isFavorite, onToggleFavorite}: CardCoffeeProps) {
 
   const [quantity, setQuantity] = useState(1);
+
+  const { addToCart } = useCart();
+
+  function handleAddToCart() {
+    addToCart({
+      image,
+      type,
+      description,
+      price,
+      quantity
+    });
+  }
 
   function increaseQuantity() {
     setQuantity((prev:number) => prev + 1);
@@ -36,7 +50,7 @@ export default function CardCoffee({image, type, description, details, price, is
         <button onClick={increaseQuantity}>+</button>
       </div>
 
-      <button className={styles.cartButton}>
+      <button className={styles.cartButton} onClick={handleAddToCart}>
         <FaShoppingCart />
       </button>
 

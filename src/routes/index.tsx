@@ -1,12 +1,18 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import Carrinho from "../pages/Carrinho";
+import { FavoriteProvider } from "../contexts/FavoriteContext";
+import { CartProvider } from "../contexts/CartContext"; // Importa o CartProvider
 
 export default function Router() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/Carrinho" element={<Carrinho />} />
-    </Routes>
+    <FavoriteProvider>
+      <CartProvider>   {/* Agora envolve também o contexto do carrinho */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Carrinho" element={<Carrinho />} />
+        </Routes>
+      </CartProvider>
+    </FavoriteProvider>
   );
 }
