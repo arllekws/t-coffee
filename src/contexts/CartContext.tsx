@@ -12,13 +12,15 @@ type Product = {
 type CartContextType = {
   cartItems: Product[];
   addToCart: (product: Product) => void;
+  removeFromCart: (description: string) => void;
+  increaseQuantity: (description: string) => void;
+  decreaseQuantity: (description: string) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cartItems, setCartItems] = useState<Product[]>(() => {
-    // Carrega do localStorage se tiver
     const saved = localStorage.getItem('cart');
     return saved ? JSON.parse(saved) : [];
   });
@@ -28,7 +30,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [cartItems]);
 
   function addToCart(product: Product) {
-    // Se o produto já existe, atualiza quantidade
     setCartItems((prev) => {
       const existingIndex = prev.findIndex(p => p.description === product.description);
       if (existingIndex >= 0) {
@@ -40,8 +41,32 @@ export function CartProvider({ children }: { children: ReactNode }) {
     });
   }
 
+  function removeFromCart(description: string) {
+    setCartItems((prev) => prev.filter(item => item.description !== description));
+  }
+
+  function increaseQuantity(description: string) {
+    setCartItems((prev) =>
+      prev.map(item =>
+        item.description === description
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  }
+
+  function decreaseQuantity(description: string) {
+    setCartItems((prev) =>
+      prev.map(item =>
+        item.description === description
+          ? { ...item, quantity: item.quantity > 1 ? item.quantity - 1 : 1 }
+          : item
+      )
+    );
+  }
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, increaseQuantity, decreaseQuantity }}>
       {children}
     </CartContext.Provider>
   );

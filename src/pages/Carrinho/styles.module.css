@@ -1,0 +1,22 @@
+.Container{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    gap: 100px;
+}
+
+
+.leftSide{
+    padding-left: 30px;
+    
+}
+
+.rightSide{
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    width: 500px;
+    background-color: #F3F4F2;
+    padding-bottom: 30px;
+}
+

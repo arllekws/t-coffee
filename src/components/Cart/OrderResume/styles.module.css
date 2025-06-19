@@ -1,0 +1,64 @@
+.Container{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    gap: 100px;
+}
+
+
+.leftSide{
+    padding-left: 30px;
+    
+}
+
+.rightSide{
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    width: 500px;
+    background-color: #F3F4F2;
+    padding-bottom: 30px;
+}
+
+.description{
+    padding-top: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.OrderItem{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.confirmButton {
+  width: 300px;
+  height: 50px;
+  margin-top: 20px;
+  background-color: #c8b5ad;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Sora';
+
+  align-self: center; /* Isso centraliza horizontalmente o botão dentro da flexbox coluna */
+}
+
+.confirmButton:hover {
+  background-color: #49281b;
+}
+
+
+.seila{
+    display: flex;
+    flex-direction: column;
+}
+
+.totalPedido {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 20px;
+  padding-left: 30px;
+}

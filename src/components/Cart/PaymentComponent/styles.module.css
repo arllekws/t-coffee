@@ -1,0 +1,58 @@
+.paymentContainer{
+    width: 660px;
+    background-color: #F3F4F2;
+    align-items: center;
+    border-radius: 5px;
+
+}
+
+.paymentHeader{
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
+
+}
+
+.paymentTypes{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    align-content: center;
+    padding: 30px 30px 30px 30px;
+}
+.paymentTypes button{
+    background-color: #b196c9;
+    border-color: black;
+    padding: 10px 20px;
+    text-align: center;
+    font-family: 'sora';
+    font-weight: 600;
+    color: #713aa4;
+    border-radius: 10px;
+}
+
+.paymentTypes button:hover {
+  background-color: #e0e0e0;
+}
+
+.paymentTypes button.selected {
+  background-color: #b196c9;
+  color: white;
+  border: 2px solid #8480a3;
+  border-style: dotted;
+}
+
+
+.icon {
+    padding-top: 30px;
+    padding-left: 30px;
+  color: #C47F17;
+}
+
+
+.p1{
+    font-family: 'Sora';
+    font-weight: 700;
+    font-size: 20px;
+}

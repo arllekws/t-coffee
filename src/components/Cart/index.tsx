@@ -5,6 +5,7 @@ export default function index() {
   return (
     <div>
         <Address />
+        <br />
         <PaymentComponent />
     </div>
   )
