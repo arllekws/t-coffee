@@ -10,7 +10,7 @@ export default function Index() {
     return total + (item.price * item.quantity);
   }, 0);
   return (
-          <div className={styles.rightSide}>
+      <div className={styles.rightSide}>
         {cartItems.length === 0 && <p>Seu carrinho está vazio</p>}
         {cartItems.map(item => (
           <div key={item.description} className={styles.description}>

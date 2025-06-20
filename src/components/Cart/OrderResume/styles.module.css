@@ -1,35 +1,30 @@
-.Container{
-    display: flex;
-    flex-direction: row;
-    align-self: flex-start;
-    gap: 100px;
+.leftSide {
+  padding-left: 30px;
+  flex: 1;
+  min-width: 300px; /* Evita quebrar muito pequeno */
 }
 
-
-.leftSide{
-    padding-left: 30px;
-    
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  width: 660px;
+  max-width: 100%; /* Limita pra não estourar em telas menores */
+  background-color: #F3F4F2;
+  padding-bottom: 30px;
 }
 
-.rightSide{
-    display: flex;
-    flex-direction: column;
-    border-radius: 30px;
-    width: 500px;
-    background-color: #F3F4F2;
-    padding-bottom: 30px;
+.description {
+  padding-top: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-.description{
-    padding-top: 40px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-.OrderItem{
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.OrderItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Se ficar apertado, deixa o conteúdo quebrar */
 }
 
 .confirmButton {
@@ -42,18 +37,16 @@
   border-radius: 30px;
   cursor: pointer;
   font-family: 'Sora';
-
-  align-self: center; /* Isso centraliza horizontalmente o botão dentro da flexbox coluna */
+  align-self: center;
 }
 
 .confirmButton:hover {
   background-color: #49281b;
 }
 
-
-.seila{
-    display: flex;
-    flex-direction: column;
+.seila {
+  display: flex;
+  flex-direction: column;
 }
 
 .totalPedido {
@@ -61,4 +54,33 @@
   font-size: 18px;
   margin-top: 20px;
   padding-left: 30px;
+}
+
+/* 📱 Responsividade para telas menores que 768px (tablet e celular) */
+@media (max-width: 768px) {
+  
+
+  .leftSide {
+    padding-left: 10px;
+  }
+
+  .rightSide {
+    width: 340px;
+    padding: 10px;
+    border-radius: 15px;
+  }
+
+  .confirmButton {
+    width: 90%;
+    align-self: center;
+  }
+
+  .description {
+    padding: 20px 10px;
+  }
+
+  .OrderItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

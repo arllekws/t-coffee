@@ -11,12 +11,43 @@
     
 }
 
-.rightSide{
-    display: flex;
-    flex-direction: column;
-    border-radius: 30px;
-    width: 500px;
-    background-color: #F3F4F2;
-    padding-bottom: 30px;
+
+
+@media (max-width: 768px) {
+  .Container {
+    flex-direction: column;  /* Faz o layout empilhar os blocos um embaixo do outro */
+    gap: 30px;               /* Reduz o espaçamento no mobile */
+    align-items: center;     /* Centraliza os itens no mobile */
+    padding: 10px;
+  }
+
+  .leftSide
+  {
+    width: 100%;             /* Faz as duas colunas ocuparem a largura inteira no mobile */
+    padding-left: 0;
+  }
+
+  .rightSide {
+    max-width: 100%;
+  }
 }
 
+/* Para telas menores que 1024px (tablets e celulares) */
+@media (max-width: 1024px) {
+  .Container {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .leftSide
+   {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .rightSide {
+    max-width: 100%;
+  }
+}

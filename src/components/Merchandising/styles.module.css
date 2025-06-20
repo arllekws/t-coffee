@@ -9,18 +9,10 @@
   max-width: 600px;
 }
 
-.BenefitsList {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 colunas */
-  grid-template-rows: repeat(2, auto);   /* 2 linhas (automáticas) */
-  gap: 20px 40px; /* Espaçamento vertical (linhas) e horizontal (colunas) */
-  margin-top: 20px;
-}
-
 .BenefitItem {
   display: flex;
   align-items: center;
-  gap: 10px; /* Espaço entre o ícone e o texto */
+  gap: 20px; /* Espaço entre o ícone e o texto */
 }
 
 .MerchandisingImage img {
