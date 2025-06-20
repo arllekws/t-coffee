@@ -1,21 +1,22 @@
 import { MdOutlinePlace } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useCart } from '../../contexts/CartContext'; // Importa o contexto
+import { useCart } from '../../contexts/CartContext';
 import "./styles.css";
-import test from "../../assets/t + COFFE escuro_Prancheta 1 1.svg"
+import test from "../../assets/t + COFFE escuro_Prancheta 1 1.svg";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function Header() {
+  const { user, loginWithGoogle, logout} = useAuth();
   const { cartItems } = useCart();
 
-  // Calcular quantidade total de itens no carrinho
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <div className="HeaderContainer">
       <Link to="/">
         <div className="Logo">
-          <img src={test} alt="" />
+          <img src={test} alt="Logo" />
         </div>
       </Link>
 
@@ -33,9 +34,28 @@ export default function Header() {
               )}
             </button>
           </Link>
-          <button className="login-button">
-            Login
-          </button>
+
+          {/* Botão de login/logout dinâmico */}
+          {user ? (
+            <div className="user-info">
+              <span>{user.name ?? "Usuário"}</span>
+              <button
+                className="login-button"
+                onClick={() => {
+                  const confirmLogout = window.confirm("Deseja realmente sair da sua conta?");
+                  if (confirmLogout) {
+                    logout();
+                  }
+                }}
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <button className="login-button" onClick={loginWithGoogle}>
+              Login com Google
+            </button>
+          )}
         </div>
       </div>
     </div>

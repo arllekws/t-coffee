@@ -5,6 +5,7 @@
   padding: 1px 20px;
   box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05); 
   text-decoration: none !important;
+  flex-wrap: wrap;
   background-color: white; /* Só garante que o fundo do header seja branco, caso queira *//* Sombra discreta embaixo */
 }
 
@@ -13,7 +14,7 @@
   align-items: center;
   gap: 10px;
   width: 120px;
-  height: 80px;
+  height: 65px;
 }
 
 .Logo a{
@@ -24,6 +25,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .location {
@@ -72,15 +74,31 @@ button {
   font-weight: 600;
 }
 
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #c6c6c6;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: 'Sora', sans-serif;
+}
+
 @media (max-width: 480px) {
   .HeaderContainer {
     padding: 5px 10px; /* Menos espaço nas bordas */
     flex-direction: row; /* Opcional: Se quiser que os elementos fiquem empilhados */
     gap: 10px;
+    padding-bottom: 30px;
   }
 
   .Logo{
+    padding-left: 80px;
     size: 2px;
+  }
+
+  .HeaderRight{
+    padding-left: 30px;
   }
 
   .location {

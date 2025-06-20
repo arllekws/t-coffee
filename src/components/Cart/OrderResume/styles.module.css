@@ -7,7 +7,7 @@
 .rightSide {
   display: flex;
   flex-direction: column;
-  border-radius: 20px;
+  border-radius: 8px;
   width: 660px;
   max-width: 100%; /* Limita pra não estourar em telas menores */
   background-color: #F3F4F2;
