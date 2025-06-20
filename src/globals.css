@@ -16,3 +16,8 @@ body{
         max-width: 480px;
     }
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -10,7 +10,7 @@ export default function Merchandising() {
     <div className={styles.MerchandisingContainer}>
         <div className={styles.MerchandisingContent}>
             <h1 className={styles.title}>Encontre o café perfeito para qualquer hora do dia</h1>
-            <p className={styles.description}>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora.</p>
+            <p className={styles.description}>Com o T+ Coffee você recebe seu café onde estiver, a qualquer hora.</p>
 
             <div className={styles.benefitsList}>
                 <div className={styles.BenefitsGroupRight}>

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useState, type ReactNode, useEffect } from "react";
 
 type FavoriteContextType = {
   favorites: string[];
@@ -8,7 +8,16 @@ type FavoriteContextType = {
 const FavoriteContext = createContext<FavoriteContextType | undefined>(undefined);
 
 export const FavoriteProvider = ({ children }: { children: ReactNode }) => {
-  const [favorites, setFavorites] = useState<string[]>([]);
+  const [favorites, setFavorites] = useState<string[]>(() => {
+    // Carregar favoritos do localStorage (se houver)
+    const saved = localStorage.getItem('favorites');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  // Salvar no localStorage sempre que os favoritos mudarem
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
 
   const toggleFavorite = (description: string) => {
     setFavorites((prevFavorites) => {

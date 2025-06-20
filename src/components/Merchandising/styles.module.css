@@ -50,3 +50,27 @@
   flex-direction: row;
   gap: 40px ;
 }
+
+@media (max-width: 768px) {
+  .MerchandisingContainer {
+    flex-direction: column; /* Faz o layout virar coluna */
+    align-items: center; /* Centraliza tudo na horizontal */
+    padding: 20px;
+  }
+
+  .MerchandisingImage img {
+    padding-right: 0;  /* Remove o espaço lateral */
+    padding-top: 20px; /* Menos espaçamento em cima */
+    max-width: 100%;   /* Faz a imagem ocupar a largura disponível */
+  }
+
+  .MerchandisingContent {
+    max-width: 100%;
+    text-align: center; /* Centraliza textos */
+  }
+
+  .BenefitsList {
+    grid-template-columns: 1fr; /* Faz a lista de benefícios virar uma coluna única no mobile */
+    gap: 10px 0;
+  }
+}
