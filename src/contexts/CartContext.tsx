@@ -1,7 +1,6 @@
-// CartContext.tsx
 import { createContext, useContext, useState, type ReactNode, useEffect } from 'react';
 
-type Product = {
+export type Product = {
   image: string;
   type: string;
   description: string;
@@ -15,6 +14,7 @@ type CartContextType = {
   removeFromCart: (description: string) => void;
   increaseQuantity: (description: string) => void;
   decreaseQuantity: (description: string) => void;
+  clearCart: () => void; // ✅ Nova função
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -65,8 +65,21 @@ export function CartProvider({ children }: { children: ReactNode }) {
     );
   }
 
+  function clearCart() {
+    setCartItems([]); // ✅ Limpa o carrinho
+  }
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, increaseQuantity, decreaseQuantity }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        increaseQuantity,
+        decreaseQuantity,
+        clearCart, // ✅ Expondo a função no contexto
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
