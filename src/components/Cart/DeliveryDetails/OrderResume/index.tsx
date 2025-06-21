@@ -1,8 +1,8 @@
 import styles from "./styles.module.css"
 
-import { useCart } from '../../../contexts/CartContext';
-import { useOrders} from "../../../contexts/OrderContext";
-import type { AddressType } from "../../../contexts/OrderContext";
+import { useCart } from '../../../../contexts/CartContext';
+import { useOrders} from "../../../../contexts/OrderContext";
+import type { AddressType } from "../../../../contexts/OrderContext";
 import { Link } from "react-router-dom";
 
 

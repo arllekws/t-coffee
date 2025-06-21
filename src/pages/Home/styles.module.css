@@ -9,7 +9,9 @@
 }
 
 
-
+.space{
+  padding-top: 50px;
+}
 
 .containerDoisPlus {
   display: flex;
@@ -88,4 +90,10 @@
 .searchInput::placeholder{
   color: #8d8686;
   font-style: italic;
+}
+
+@media (max-width: 480px){
+  .space{
+    padding-top: 200px;
+  }
 }

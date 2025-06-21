@@ -43,10 +43,11 @@ export default function ConfirmationPage() {
           </>
         )}
 
-        <div className={styles.illustration}>
+        
+      </div>
+      <div className={styles.illustration}>
           <img src={Ilustrator} alt="Ilustração de confirmação" />
         </div>
-      </div>
     </div>
   );
 }

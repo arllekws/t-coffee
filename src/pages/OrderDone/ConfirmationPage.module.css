@@ -1,50 +1,9 @@
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 40px auto;
   padding: 20px;
-  background-color: #f0fdf4;
+  background-color: #e6e6e6;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   font-family: Arial, sans-serif;
-}
-
-.title {
-  color: #2f855a;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.subtitle {
-  color: #4a5568;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.infoSection {
-  margin-bottom: 20px;
-}
-
-.infoSection h2 {
-  color: #2f855a;
-  margin-bottom: 5px;
-}
-
-.infoSection p,
-.infoSection li {
-  color: #2d3748;
-}
-
-.productList {
-  list-style-type: disc;
-  padding-left: 20px;
-}
-
-.illustration {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-img {
-  max-width: 300px;
 }

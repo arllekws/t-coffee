@@ -1,12 +1,11 @@
-import Address from "../../components/Cart/Address";
-import PaymentComponent from "./PaymentComponent";
+
+import DeliveryDetails from "./DeliveryDetails";
 
 export default function index() {
   return (
     <div>
-        <Address />
-        <br />
-        <PaymentComponent />
+        
+        <DeliveryDetails/>
     </div>
   )
 }

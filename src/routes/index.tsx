@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
-import Carrinho from "../pages/Carrinho";
+import Cart from "../pages/Cart";
 import Admin from "../pages/Admin";
 import ProductDetailPage from "../pages/ProductDetailPage";
 import OrderDone from "../pages/OrderDone";
@@ -17,7 +17,7 @@ export default function Router() {
         <CartProvider>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/Carrinho" element={<Carrinho />} />
+              <Route path="/Carrinho" element={<Cart />} />
               <Route path="/product/:description" element={<ProductDetailPage />} />
               <Route path="/order-done" element={<OrderDone />} />
               <Route path="/Admin" element={<Admin/>} />

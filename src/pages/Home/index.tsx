@@ -30,7 +30,9 @@ export default function Home() {
   return (
     <div>
       <Header />
+      <div className={styles.space}>
       <Merchandising />
+      </div>
       <div className={styles.containerDois}>
         <h1 className={styles.coffeeTitle}>Nossos cafés</h1>
 

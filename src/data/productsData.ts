@@ -27,7 +27,7 @@ const coffeeList = [
     image: americano,
     type: "Tradicional",
     description: "Expresso Americano",
-    details: "Expresso diluído, menos intenso que o tradicional e muito bom para dias frios.",
+    details: "Expresso diluído, menos intenso que o tradicional e muito bom para dias frios e úmidos.",
     price: 9.95,
     ingredients: ["Água", "Grãos de café arábica moídos"]
   },
