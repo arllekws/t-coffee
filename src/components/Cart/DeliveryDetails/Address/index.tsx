@@ -1,16 +1,11 @@
 import { useState } from "react";
+import { useAddress } from "../../../../contexts/AdressContext";
 import { MdAddLocationAlt } from "react-icons/md";
 import styles from "./styles.module.css";
 
 export default function Address() {
   const [cep, setCep] = useState("");
-  const [address, setAddress] = useState({
-    rua: "",
-    bairro: "",
-    cidade: "",
-    uf: "",
-  });
-
+  const {address, setAddress} = useAddress();
   const handleCepChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, ""); // Mantém só os números
     setCep(value);
@@ -25,6 +20,9 @@ export default function Address() {
               bairro: data.bairro,
               cidade: data.localidade,
               uf: data.uf,
+              numero: data.numero,
+              complemento: data.complemento,
+              cep: data.cep
             });
           } else {
             alert("CEP não encontrado!");

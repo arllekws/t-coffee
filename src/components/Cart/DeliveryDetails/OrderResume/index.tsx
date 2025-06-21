@@ -2,24 +2,15 @@ import styles from "./styles.module.css"
 
 import { useCart } from '../../../../contexts/CartContext';
 import { useOrders} from "../../../../contexts/OrderContext";
-import type { AddressType } from "../../../../contexts/OrderContext";
 import { Link } from "react-router-dom";
+import { useAddress } from "../../../../contexts/AdressContext";
 
 
 
 export default function OrderResume() {
   const { cartItems, decreaseQuantity, increaseQuantity, removeFromCart, clearCart } = useCart();
   const { addOrder } = useOrders();
-
-  const address: AddressType = {
-    rua: "Exemplo Rua",
-    bairro: "Exemplo Bairro",
-    cidade: "Exemplo Cidade",
-    uf: "SP",
-    numero: "123",
-    complemento: "Apto 101",
-    cep: "00000000",
-  };
+  const { address } = useAddress();
 
   const paymentMethod = "Cartão de Crédito";
 
