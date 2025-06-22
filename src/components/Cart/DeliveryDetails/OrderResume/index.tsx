@@ -54,9 +54,11 @@ export default function OrderResume() {
         </div>
       ))}
       <p className={styles.totalPedido}>Total Pedido: R$ {totalPedido.toFixed(2)}</p>
-      <Link to="/order-done">
-        <button className={styles.confirmButton} onClick={handleConfirm}>CONFIRMAR PEDIDO</button>
-      </Link>
+      <div className={styles.orderDone}>
+        <Link to="/order-done">
+          <button className={styles.confirmButton} onClick={handleConfirm}>CONFIRMAR PEDIDO</button>
+        </Link>
+    </div>
     </div>
   );
 }
