@@ -1,11 +1,12 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
-import { signInWithPopup, signOut } from "firebase/auth";
+import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 import { auth, provider } from "../../src/firebaseConfig";
 
 type User = {
   name: string;
   email: string;
   photo: string;
+  uid: string;  // Adicione o UID para conseguir relacionar os favoritos depois
 };
 
 type AuthContextType = {
@@ -19,6 +20,23 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      if (firebaseUser) {
+        setUser({
+          name: firebaseUser.displayName || "",
+          email: firebaseUser.email || "",
+          photo: firebaseUser.photoURL || "",
+          uid: firebaseUser.uid, // Guarda o UID
+        });
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   const loginWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
@@ -27,6 +45,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         name: userData.displayName || "",
         email: userData.email || "",
         photo: userData.photoURL || "",
+        uid: userData.uid,
       });
     } catch (error) {
       console.error("Erro ao fazer login:", error);

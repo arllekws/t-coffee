@@ -8,8 +8,10 @@ export default function ConfirmationPage() {
   const lastOrder = orders[orders.length - 1];
 
   return (
-    <div>
+    <div >
       <Header />
+
+      <div className={styles.containerTop}>
 
       <div className={styles.container}>
         <h1 className={styles.title}>✅ Uhuul! Pedido confirmado</h1>
@@ -48,6 +50,7 @@ export default function ConfirmationPage() {
       <div className={styles.illustration}>
           <img src={Ilustrator} alt="Ilustração de confirmação" />
         </div>
+    </div>
     </div>
   );
 }

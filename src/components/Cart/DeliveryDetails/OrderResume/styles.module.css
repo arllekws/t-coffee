@@ -71,8 +71,9 @@
   }
 
   .confirmButton {
-    width: 90%;
+    width: 100%;
     align-self: center;
+
   }
 
   .description {
@@ -81,6 +82,6 @@
 
   .OrderItem {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center
   }
 }

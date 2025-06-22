@@ -1,7 +1,7 @@
 .HeaderContainer {
   top: 0;
   position: fixed;
-  width: 94%;
+  width: 97%;
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -35,7 +35,7 @@
 .location {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 15px;
   background-color: #F1E9C9;
   border-radius: 20px;
   padding: 1px 10px;
@@ -90,24 +90,22 @@ button {
 
 @media (max-width: 480px) {
   .HeaderContainer {
-    padding: 5px 10px; /* Menos espaço nas bordas */
     flex-direction: row; /* Opcional: Se quiser que os elementos fiquem empilhados */
     gap: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
   }
 
   .Logo{
-    padding-left: 80px;
-    size: 2px;
+    padding-left: 90px;
   }
 
   .HeaderRight{
-    padding-left: 30px;
+    padding-left: 110px;
   }
 
   .location {
-    padding: 1px 5px; /* Menos padding */
-    font-size: 12px;   /* Texto menor (se quiser) */
+    font-size: 12px;
+    padding-left: 20px;   /* Texto menor (se quiser) */
   }
 
   .login-button {

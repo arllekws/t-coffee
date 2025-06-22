@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, type ReactNode, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import { useAuth } from "./AuthContext";  // Importando o contexto de autenticação
 
 type FavoriteContextType = {
   favorites: string[];
@@ -8,25 +9,32 @@ type FavoriteContextType = {
 const FavoriteContext = createContext<FavoriteContextType | undefined>(undefined);
 
 export const FavoriteProvider = ({ children }: { children: ReactNode }) => {
-  const [favorites, setFavorites] = useState<string[]>(() => {
-    // Carregar favoritos do localStorage (se houver)
-    const saved = localStorage.getItem('favorites');
-    return saved ? JSON.parse(saved) : [];
-  });
+  const { user } = useAuth();  // Pegando o usuário logado
+  const [favorites, setFavorites] = useState<string[]>([]);
 
-  // Salvar no localStorage sempre que os favoritos mudarem
+  // Carregar os favoritos do usuário quando ele logar
   useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }, [favorites]);
+    if (user) {
+      const saved = localStorage.getItem(`favorites_${user.uid}`);
+      setFavorites(saved ? JSON.parse(saved) : []);
+    } else {
+      setFavorites([]);  // Limpa os favoritos se deslogar
+    }
+  }, [user]);
+
+  // Salvar os favoritos no localStorage sempre que mudarem
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem(`favorites_${user.uid}`, JSON.stringify(favorites));
+    }
+  }, [favorites, user]);
 
   const toggleFavorite = (description: string) => {
-    setFavorites((prevFavorites) => {
-      if (prevFavorites.includes(description)) {
-        return prevFavorites.filter((item) => item !== description);
-      } else {
-        return [...prevFavorites, description];
-      }
-    });
+    setFavorites((prevFavorites) =>
+      prevFavorites.includes(description)
+        ? prevFavorites.filter((item) => item !== description)
+        : [...prevFavorites, description]
+    );
   };
 
   return (
