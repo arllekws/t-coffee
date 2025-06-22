@@ -95,12 +95,16 @@ button {
     padding-bottom: 20px;
   }
 
+  .actions{
+    padding-right: 30px;
+  }
+
   .Logo{
     padding-left: 90px;
   }
 
   .HeaderRight{
-    padding-left: 110px;
+    padding-left: 100px;
   }
 
   .location {
