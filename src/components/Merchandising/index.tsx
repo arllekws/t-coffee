@@ -1,7 +1,7 @@
 import Icon from '../../assets/Icon.svg';
 import Icon2 from '../../assets/Icon2.svg';
 import Icon3 from '../../assets/Icon3.svg';
-import icon4 from '../../assets/icon4.svg';
+import icon4 from '../../assets/icon4.svg';// meudeus!!!!
 import styles from './styles.module.css';
 import Imagem from '../../assets/3rd2q.png';
 
