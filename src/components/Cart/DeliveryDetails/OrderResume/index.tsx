@@ -45,9 +45,15 @@ export default function OrderResume() {
           </div>
           <p>Quantidade: {item.quantity}</p>
 
-          <button onClick={() => decreaseQuantity(item.description)}>-</button>
-          <button onClick={() => increaseQuantity(item.description)}>+</button>
-          <button onClick={() => removeFromCart(item.description)}>Remover</button>
+          <div className={styles.containerActions}>
+            <div className={styles.actionsCounter}>
+              <button onClick={() => decreaseQuantity(item.description)}>-</button>
+              <button onClick={() => increaseQuantity(item.description)}>+</button>
+            </div>
+            <div className={styles.actionsRemove}>
+              <button onClick={() => removeFromCart(item.description)}>Remover</button>
+            </div>
+          </div>
           
           <p>Total: R$ {(item.price * item.quantity).toFixed(2)}</p>
           <hr />
