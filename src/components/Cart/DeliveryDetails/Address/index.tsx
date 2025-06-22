@@ -34,7 +34,7 @@ export default function Address() {
 
   return (
     <div>
-      <p>Complete seu pedido</p>
+      <p className={styles.pzao}>Complete seu pedido</p>
       <div className={styles.container}>
         <div className={styles.inicio}>
           <div className={styles.icon1}>
