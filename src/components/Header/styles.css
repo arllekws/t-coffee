@@ -95,6 +95,11 @@ button {
     padding-bottom: 20px;
   }
 
+  .user-info{
+    font-size: 13px;
+    padding-left: 10px;
+  }
+
   .actions{
     padding-right: 80px;
   }
