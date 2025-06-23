@@ -4,6 +4,7 @@ import { useOrders} from "../../../../contexts/OrderContext";
 import { Link } from "react-router-dom";
 import { useAddress } from "../../../../contexts/AdressContext";
 
+
 export default function OrderResume() {
   const { cartItems, decreaseQuantity, increaseQuantity, removeFromCart, clearCart } = useCart();
   const { addOrder } = useOrders();
