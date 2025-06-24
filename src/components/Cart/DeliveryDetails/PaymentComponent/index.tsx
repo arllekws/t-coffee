@@ -1,13 +1,13 @@
 import { MdAttachMoney } from "react-icons/md";
 import { FaMoneyCheck, FaMoneyBill } from "react-icons/fa";
 import { CiMoneyCheck1 } from "react-icons/ci";
-import styles from "./styles.module.css"
+import styles from "./styles.module.css";
 import { useState } from "react";
+import { usePayment } from "../../../../contexts/PaymentContext";
 
-export default function index() {
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export default function PaymentComponent() {
   const [selectedPayment, setSelectedPayment] = useState("");
+  const { setPaymentMethod } = usePayment();  // Pegando o setter do contexto
 
   interface PaymentTypeProps {
     paymentType: string;
@@ -15,46 +15,46 @@ export default function index() {
 
   const handleSelect = (paymentType: PaymentTypeProps["paymentType"]) => {
     setSelectedPayment(paymentType);
+    setPaymentMethod(paymentType);  // Atualizando o contexto global
   };
 
   return (
     <div className={styles.paymentContainer}>
-        <div className={styles.paymentHeader}>
-          <div className={styles.icon}>
-            <MdAttachMoney size={30}/>
-          </div>
-            <div>
-              <p className={styles.p1}>Pagamento</p>
-              <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar.</p>
-            </div>
+      <div className={styles.paymentHeader}>
+        <div className={styles.icon}>
+          <MdAttachMoney size={30} />
         </div>
+        <div>
+          <p className={styles.p1}>Pagamento</p>
+          <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar.</p>
+        </div>
+      </div>
 
-        <div className={styles.paymentTypes}>
-      <button
-        type="button"
-        onClick={() => handleSelect("credito")}
-        className={selectedPayment === "credito" ? styles.selected : ""}
-      >
-        <FaMoneyCheck /> CARTÃO DE CRÉDITO
-      </button>
+      <div className={styles.paymentTypes}>
+        <button
+          type="button"
+          onClick={() => handleSelect("credito")}
+          className={selectedPayment === "credito" ? styles.selected : ""}
+        >
+          <FaMoneyCheck /> CARTÃO DE CRÉDITO
+        </button>
 
-      <button
-        type="button"
-        onClick={() => handleSelect("debito")}
-        className={selectedPayment === "debito" ? styles.selected : ""}
-      >
-        <CiMoneyCheck1 /> CARTÃO DE DÉBITO
-      </button>
+        <button
+          type="button"
+          onClick={() => handleSelect("debito")}
+          className={selectedPayment === "debito" ? styles.selected : ""}
+        >
+          <CiMoneyCheck1 /> CARTÃO DE DÉBITO
+        </button>
 
-      <button
-        type="button"
-        onClick={() => handleSelect("dinheiro")}
-        className={selectedPayment === "dinheiro" ? styles.selected : ""}
-      >
-        <FaMoneyBill /> DINHEIRO
-      </button>
+        <button
+          type="button"
+          onClick={() => handleSelect("dinheiro")}
+          className={selectedPayment === "dinheiro" ? styles.selected : ""}
+        >
+          <FaMoneyBill /> DINHEIRO
+        </button>
+      </div>
     </div>
-    </div>
-  )
+  );
 }
-

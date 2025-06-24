@@ -3,6 +3,8 @@ import { useCart } from '../../../../contexts/CartContext';
 import { useOrders} from "../../../../contexts/OrderContext";
 import { Link } from "react-router-dom";
 import { useAddress } from "../../../../contexts/AdressContext";
+import { usePayment } from "../../../../contexts/PaymentContext";
+
 
 
 export default function OrderResume() {
@@ -10,7 +12,8 @@ export default function OrderResume() {
   const { addOrder } = useOrders();
   const { address } = useAddress();
 
-  const paymentMethod = "Cartão de Crédito";
+  const { paymentMethod } = usePayment();
+
 
   const handleConfirm = () => {
     const newOrder = {
@@ -19,6 +22,7 @@ export default function OrderResume() {
       paymentMethod,
       cart: cartItems,
       status: "Pendente",
+      payment: null, // or provide a valid ReactNode if needed
     };
 
     addOrder(newOrder);

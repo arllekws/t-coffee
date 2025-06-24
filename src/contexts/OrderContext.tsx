@@ -12,6 +12,7 @@ export type AddressType = {
 };
 
 export type Order = {
+  payment: ReactNode;
   id: number;
   address: AddressType;
   paymentMethod: string;
