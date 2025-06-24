@@ -2,7 +2,7 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 
 export type AddressType = {
-  rua: string;
+  rua: string; /*  */
   bairro: string;
   cidade: string;
   uf: string;
