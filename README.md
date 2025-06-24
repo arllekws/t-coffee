@@ -19,7 +19,7 @@ Um sistema de pedidos de café online, rápido e responsivo, feito com **React**
 - **TypeScript**
 - **Vite**
 - **Firebase Authentication**
-- **CSS Modules** *(ou Tailwind, caso esteja usando)*
+- **CSS Modules** 
 
 ---
 
@@ -29,3 +29,29 @@ Um sistema de pedidos de café online, rápido e responsivo, feito com **React**
 
 ```bash
 git clone https://github.com/seu-usuario/t-plus-coffee.git
+
+```
+2. Instale as dependências:
+
+```bash
+npm install | npm i 
+```
+
+3. Rode o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+4. Abra no navegador:
+
+```bash
+http://localhost:5173
+```
+
+## 🌐 Deploy Online
+
+Projeto disponível em produção:
+
+👉 https://t-coffee.vercel.app/
+
