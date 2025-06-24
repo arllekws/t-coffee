@@ -4,8 +4,7 @@ import { useOrders} from "../../../../contexts/OrderContext";
 import { Link } from "react-router-dom";
 import { useAddress } from "../../../../contexts/AdressContext";
 import { usePayment } from "../../../../contexts/PaymentContext";
-
-
+import { saveOrderToFirestore } from "../../../../services/orderService";
 
 export default function OrderResume() {
   const { cartItems, decreaseQuantity, increaseQuantity, removeFromCart, clearCart } = useCart();
@@ -14,8 +13,7 @@ export default function OrderResume() {
 
   const { paymentMethod } = usePayment();
 
-
-  const handleConfirm = () => {
+  const handleConfirm = async () => {
     const newOrder = {
       id: Date.now(),
       address,
@@ -26,6 +24,15 @@ export default function OrderResume() {
     };
 
     addOrder(newOrder);
+
+    await saveOrderToFirestore({
+    address,
+    paymentMethod,
+    cart: cartItems,
+    status: "Pendente",
+    payment: null,
+  });
+
     clearCart();
     alert("Pedido enviado a Cafeteria!");
   };
