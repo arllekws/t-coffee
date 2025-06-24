@@ -10,24 +10,32 @@ import { AuthProvider } from "../contexts/AuthContext"; // Importa o AuthProvide
 import { OrderProvider } from "../contexts/OrderContext";
 import { AddressProvider } from "../contexts/AdressContext";
 
+import ScrollToTop from "./ScrollToTop";
+import { PaymentProvider } from "../contexts/PaymentContext";
+
 export default function Router() {
   return (
-    <AuthProvider>
-      <FavoriteProvider>
-        <OrderProvider>
-        <CartProvider>
-           <AddressProvider>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/Carrinho" element={<Cart />} />
-              <Route path="/product/:description" element={<ProductDetailPage />} />
-              <Route path="/order-done" element={<OrderDone />} />
-              <Route path="/Admin" element={<Admin/>} />
-            </Routes>  
-            </AddressProvider> 
-        </CartProvider>
-        </OrderProvider>
-      </FavoriteProvider>
-    </AuthProvider>
+    <>
+      <ScrollToTop/>
+      <AuthProvider>
+        <FavoriteProvider>
+          <OrderProvider>
+            <PaymentProvider>
+              <CartProvider>
+                <AddressProvider>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/Carrinho" element={<Cart />} />
+                    <Route path="/product/:description" element={<ProductDetailPage />} />
+                    <Route path="/order-done" element={<OrderDone />} />
+                    <Route path="/Admin" element={<Admin/>} />
+                  </Routes>  
+                </AddressProvider> 
+              </CartProvider>
+            </PaymentProvider>
+          </OrderProvider>
+        </FavoriteProvider>
+      </AuthProvider>
+    </>
   );
 }

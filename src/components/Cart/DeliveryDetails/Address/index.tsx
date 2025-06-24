@@ -2,39 +2,37 @@ import { useState } from "react";
 import { useAddress } from "../../../../contexts/AdressContext";
 import { MdAddLocationAlt } from "react-icons/md";
 import styles from "./styles.module.css";
+import { getAddressByCep } from "../../../../services/viaCepService";
+
 
 export default function Address() {
   const [cep, setCep] = useState("");
   const {address, setAddress} = useAddress();
-  const handleCepChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCepChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, ""); // Mantém só os números
     setCep(value);
 
     if (value.length === 8) {
-      fetch(`https://viacep.com.br/ws/${value}/json/`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (!data.erro) {
+      const data = await getAddressByCep(value);
+          if (data) {
             setAddress({
               rua: data.logradouro,
               bairro: data.bairro,
               cidade: data.localidade,
               uf: data.uf,
-              numero: data.numero,
-              complemento: data.complemento,
+              numero: data.numero ?? "",
+              complemento: data.complemento ?? "",
               cep: data.cep
             });
           } else {
             alert("CEP não encontrado!");
-          }
-        })
-        .catch(() => alert("Erro ao buscar o CEP"));
+        }
     }
   };
 
   return (
     <div>
-      <p>Complete seu pedido</p>
+      <p className={styles.pzao}>Complete seu pedido</p>
       <div className={styles.container}>
         <div className={styles.inicio}>
           <div className={styles.icon1}>

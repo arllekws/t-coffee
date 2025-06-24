@@ -7,6 +7,16 @@ export default function ConfirmationPage() {
   const { orders } = useOrders();
   const lastOrder = orders[orders.length - 1];
 
+  function getPaymentMethodLabel(method: string) {
+  const paymentLabels: Record<string, string> = {
+    credito: "Cartão de Crédito",
+    debito: "Cartão de Débito",
+    dinheiro: "Dinheiro",
+  };
+
+  return paymentLabels[method] || "Forma de pagamento não informada";
+}
+
   return (
     <div >
       <Header />
@@ -29,7 +39,7 @@ export default function ConfirmationPage() {
 
             <div className={styles.infoSection}>
               <h2>💳 Forma de pagamento:</h2>
-              <p>{lastOrder.paymentMethod}</p>
+              <p>{getPaymentMethodLabel(lastOrder.paymentMethod)}</p>
             </div>
 
             <div className={styles.infoSection}>

@@ -17,6 +17,18 @@ input {
   box-sizing: border-box;
 }
 
+input:focus {
+  border-color: #C47F17; /* Altera a cor da borda quando o input está em foco */
+  background-color: #fff8e6; /* Um tom claro de amarelo, por exemplo */
+  outline: none; /* Remove o contorno azul padrão de alguns navegadores */
+}
+
+input::placeholder{
+  font-family: 'Sora';
+  font-weight: 600;
+}
+
+
 .input_container {
   display: flex;
   flex-direction: column;
@@ -35,6 +47,11 @@ input {
   align-items: center;
   gap: 20px;
   padding-bottom: 30px;
+}
+
+.pzao{
+  font-weight: 800;
+  font-size: 25px;
 }
 
 .icon1 {

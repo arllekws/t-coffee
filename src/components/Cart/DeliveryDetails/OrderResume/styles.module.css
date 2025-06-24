@@ -5,6 +5,7 @@
 }
 
 .rightSide {
+  padding-left: 40px;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -28,16 +29,24 @@
 }
 
 .confirmButton {
-  width: 300px;
+  width: 100%;
   height: 50px;
   margin-top: 20px;
   background-color: #c8b5ad;
   color: white;
-  border: none;
   border-radius: 30px;
   cursor: pointer;
   font-family: 'Sora';
-  align-self: center;
+}
+
+.confirmButton:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.orderDone{
+  padding-right: 40px;
 }
 
 .confirmButton:hover {
@@ -56,6 +65,54 @@
   padding-left: 30px;
 }
 
+.containerActions {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.actionsCounter {
+  display: flex;
+  gap: 8px;
+  background-color: #F3F3F3;
+  padding: 5px 10px;
+  padding: auto;
+  
+}
+
+.actionsCounter button {
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 4px;
+  border-color:#c8b5ad;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-family: 'Sora';
+}
+
+.actionsCounter button:hover {
+  background-color: white;
+  color: #49281b;
+}
+
+.actionsRemove button {
+  padding-top: 30px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: 'Sora';
+}
+
+.actionsRemove button:hover {
+  background-color: darkred;
+}
+
+
+
 /* 📱 Responsividade para telas menores que 768px (tablet e celular) */
 @media (max-width: 768px) {
   
@@ -65,13 +122,13 @@
   }
 
   .rightSide {
-    width: 340px;
+    width: 95%;
     padding: 10px;
     border-radius: 15px;
   }
 
   .confirmButton {
-    width: 100%;
+    width: 115%;
     align-self: center;
 
   }

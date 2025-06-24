@@ -12,7 +12,7 @@
 }
 
 .rightSide{
-  padding-top: 50px;
+  padding-top: 200px;
 }
 
 
@@ -43,7 +43,11 @@
     gap: 30px;
     align-items: center;
     padding: 10px;
+<<<<<<< HEAD
     padding-top: 140px;
+=======
+    padding-top: 160px;
+>>>>>>> main
   }
 
   .leftSide
@@ -54,5 +58,21 @@
 
   .rightSide {
     max-width: 100%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .Container {
+    max-width: 1600px;    /* Limita a largura máxima do conteúdo, pra não ficar muito esticado */
+    margin: 0 auto;        /* Centraliza o container na tela */
+    gap: 200px;            /* Mais espaço entre as colunas */
+  }
+
+  .leftSide, .rightSide {
+    padding: 40px;          /* Mais respiro nos lados */
+  }
+
+  .rightSide {
+    padding-top: 120px;     /* Mantém um bom topo */
   }
 }

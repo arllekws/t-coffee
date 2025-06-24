@@ -1,8 +1,8 @@
 .container {
   display: flex;
   flex-direction: row;
-  gap: 50px;
-  padding-top: 100px;
+  gap: 100px;
+  padding-top: 50px;
 }
 
 .leftSide {
@@ -26,3 +26,14 @@
     width: 100%;
   }
 }
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  /* Estilo para telas tipo MacBook Air */
+
+  .container{
+    gap: 20px;
+  }
+
+  
+}
+

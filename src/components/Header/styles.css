@@ -95,8 +95,13 @@ button {
     padding-bottom: 20px;
   }
 
+  .user-info{
+    font-size: 13px;
+    padding-left: 10px;
+  }
+
   .actions{
-    padding-right: 20px;
+    padding-right: 30px;
   }
 
   .Logo{
@@ -104,12 +109,12 @@ button {
   }
 
   .HeaderRight{
-    padding-left: 100px;
+    padding-left: 90px;
   }
 
   .location {
     font-size: 12px;
-    padding-left: 20px;   /* Texto menor (se quiser) */
+    padding-left: 20px;   
   }
 
   .login-button {

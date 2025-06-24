@@ -47,7 +47,7 @@ export default function CardCoffee({ image, type, description, details, price }:
       <div className={styles.actions}>
         <span className={styles.coffeePrice}>
           <span className={styles.rs}>R$</span>
-          {price}
+          {price.toFixed(2).replace('.', ',')} 
         </span>
 
         <div className={styles.quantityControls}>
