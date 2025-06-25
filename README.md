@@ -1,4 +1,5 @@
-# T+ Coffee ☕
+
+
 
 Um sistema de pedidos de café online, rápido e responsivo, feito com **React**, **Vite** e **TypeScript**.
 
@@ -15,13 +16,21 @@ Um sistema de pedidos de café online, rápido e responsivo, feito com **React**
 
 ## 🚀 Tecnologias utilizadas
 
-- **React**
-- **TypeScript**
-- **Vite**
-- **Firebase Authentication**
-- **CSS Modules** 
+![Typescript](https://img.shields.io/badge/-Typescript-lightblue?style=for-the-badge&logo=typescript)
+![React](https://img.shields.io/badge/-React-blue?style=for-the-badge&logo=react)
+![React Router](https://img.shields.io/badge/-React%20Router-orange?style=for-the-badge&logo=react-router)
+![Vite](https://img.shields.io/badge/-Vite-lightblue?style=for-the-badge&logo=vite)
+![FireBase Authentication](https://img.shields.io/badge/-Firebase-orange?style=for-the-badge&logo=firebase)
+![CSS Modules](https://img.shields.io/badge/-cssmodules-darkpurple?style=for-the-badge&logo=css)
+![Vercel](https://img.shields.io/badge/-vercel-black?style=for-the-badge&logo=vercel)
 
 ---
+
+## 🌐 Deploy Online
+
+Projeto disponível em produção:
+
+👉 https://t-coffee.vercel.app/
 
 ## 💻 Como rodar o projeto localmente
 
@@ -49,9 +58,5 @@ npm run dev
 http://localhost:5173
 ```
 
-## 🌐 Deploy Online
 
-Projeto disponível em produção:
-
-👉 https://t-coffee.vercel.app/
 
