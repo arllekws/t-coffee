@@ -23,6 +23,7 @@ export type Order = {
 type OrderContextType = {
   orders: Order[];
   addOrder: (order: Order) => void;
+  removeOrder: (id: number) => void;
 };
 
 const OrderContext = createContext<OrderContextType | undefined>(undefined);
@@ -41,8 +42,12 @@ export function OrderProvider({ children }: { children: ReactNode }) {
     setOrders((prev) => [...prev, order]);
   }
 
+  const removeOrder = (id: number) => {
+    setOrders((prev) => prev.filter((order) => order.id !== id));
+  };
+
   return (
-    <OrderContext.Provider value={{ orders, addOrder }}>
+    <OrderContext.Provider value={{ orders, addOrder, removeOrder }}>
       {children}
     </OrderContext.Provider>
   );

@@ -2,7 +2,7 @@ import { useOrders } from "../../contexts/OrderContext";
 import styles from "./styles.module.css";
 
 export default function AdminPage() {
-  const { orders } = useOrders();
+  const { orders, removeOrder } = useOrders();
 
   return (
     <div className={styles.container}>
@@ -43,6 +43,13 @@ export default function AdminPage() {
               <strong>Status:</strong>
               <p>{order.status}</p>
             </div>
+
+            <button
+              className={styles.deleteButton}
+              onClick={() => removeOrder(order.id)}
+            >
+              ❌ Excluir Pedido
+            </button>
           </div>
         ))
       )}
