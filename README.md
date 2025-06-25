@@ -12,7 +12,9 @@ Um sistema de pedidos de café online, rápido e responsivo, feito com **React**
 
 - 🔑 **Login com Google** (Autenticação simples via Firebase)
 - 📋 **Listagem de produtos** (Cafés disponíveis para pedido)
+- ✔️ **Filtre o produto que deseja** (Tipos variados de café)
 - 🛒 **Carrinho de compras** (Adicione e gerencie seus pedidos)
+- 💗 **Favoritar produtos** (Gerencie seus cafés favoritos)
 - 📱 **Design Responsivo** (Perfeito para desktop e mobile)
 
 ---
@@ -75,4 +77,5 @@ http://localhost:5173
 - 📝 Botão "Meus Pedidos"
 - 📝 API Email para cliente e cafeteria
 - 📝 Banco de Dados especifico para armazenar pedidos
+- 📝 Fazer cada café receber mais de uma categoria
 
