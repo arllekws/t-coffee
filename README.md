@@ -61,5 +61,18 @@ npm run dev
 http://localhost:5173
 ```
 
+----
 
+## Desenvolvedores
+
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/120507007?v=4" width=115><br><sub>Arllesson Gomes</sub>](https://github.com/arllekws) | 
+| :---: |
+----
+## Features futuras 
+
+- 📝 Página Administrador
+- 📝 API de pagamento
+- 📝 Botão "Meus Pedidos"
+- 📝 API Email para cliente e cafeteria
+- 📝 Banco de Dados especifico para armazenar pedidos
 
