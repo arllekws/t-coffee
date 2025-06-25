@@ -54,6 +54,11 @@ input::placeholder{
   font-size: 25px;
 }
 
+.adressP{
+  font-weight: 700;
+  font-size: 20px;
+}
+
 .icon1 {
   color: #C47F17;
   font-size: 24px;

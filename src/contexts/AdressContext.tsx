@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, type ReactNode } from "react";
 
 export type AddressType = {
@@ -36,6 +35,7 @@ export function AddressProvider({ children }: { children: ReactNode }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAddress() {
   const context = useContext(AddressContext);
   if (!context) throw new Error("useAddress precisa estar dentro de AddressProvider");

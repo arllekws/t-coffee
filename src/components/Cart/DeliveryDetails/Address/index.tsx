@@ -39,7 +39,7 @@ export default function Address() {
             <MdAddLocationAlt size={30} />
           </div>
           <div>
-            <p>Endereço de Entrega</p>
+            <p className={styles.adressP}>Endereço de Entrega</p>
             <p>Informe o endereço onde deseja receber seu pedido</p>
           </div>
         </div>
