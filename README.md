@@ -2,6 +2,9 @@
   <img src="https://github.com/user-attachments/assets/fa854304-f260-4292-8b91-402360e6b447" alt="Imagem de exemplo" width="400"/>
 </p>
 
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+
+
 
 
 Um sistema de pedidos de café online, rápido e responsivo, feito com **React**, **Vite** e **TypeScript**.
