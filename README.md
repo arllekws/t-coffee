@@ -72,7 +72,7 @@ http://localhost:5173
 ----
 ## Features futuras 
 
-- 📝 Página Administrador
+
 - 📝 API de pagamento
 - 📝 Botão "Meus Pedidos"
 - 📝 API Email para cliente e cafeteria

@@ -10,3 +10,5 @@ export interface CardCoffeeProps {
   isFavorite: boolean;
   onToggleFavorite: () => void;
 }
+
+// Interface que define as propriedades dos componentes que o CardCoffee recebe. (Tipagem)

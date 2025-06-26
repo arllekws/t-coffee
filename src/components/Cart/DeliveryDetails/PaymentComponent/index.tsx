@@ -6,20 +6,25 @@ import { useState } from "react";
 import { usePayment } from "../../../../contexts/PaymentContext";
 
 export default function PaymentComponent() {
+  // Estado local para armazenar o método de pagamento selecionado (visualmente)
   const [selectedPayment, setSelectedPayment] = useState("");
+  // Função global do contexto para salvar o método de pagamento escolhido
   const { setPaymentMethod } = usePayment();  // Pegando o setter do contexto
 
+  // Tipagem para que o tipo de pagamento seja uma string 
   interface PaymentTypeProps {
     paymentType: string;
   }
 
+  // Quando um método de pagamento é selecionado
   const handleSelect = (paymentType: PaymentTypeProps["paymentType"]) => {
-    setSelectedPayment(paymentType);
+    setSelectedPayment(paymentType); // Atualiza o botão selecionado
     setPaymentMethod(paymentType);  // Atualizando o contexto global
   };
 
   return (
     <div className={styles.paymentContainer}>
+      {/* Cabeçalho do componente de pagamento */}
       <div className={styles.paymentHeader}>
         <div className={styles.icon}>
           <MdAttachMoney size={30} />
@@ -30,11 +35,13 @@ export default function PaymentComponent() {
         </div>
       </div>
 
+      {/* Botões para selecionar o tipo de pagamento */}
+
       <div className={styles.paymentTypes}>
         <button
           type="button"
           onClick={() => handleSelect("credito")}
-          className={selectedPayment === "credito" ? styles.selected : ""}
+          className={selectedPayment === "credito" ? styles.selected : ""} //Caso seja selecionado ele muda de cor
         >
           <FaMoneyCheck /> CARTÃO DE CRÉDITO
         </button>

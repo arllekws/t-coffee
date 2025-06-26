@@ -9,13 +9,19 @@ import coffeeList from "../../data/productsData";
 
 
 export default function Home() {
+  // Estado para o filtro de tipo selecionado (ex: "Tradicional", "Especial")
   const [selectedFilter, setSelectedFilter] = useState<string>("");
+
+  // Estado para mostrar ou esconder os filtros
   const [showFilters, setShowFilters] = useState<boolean>(false);
+
+  // Estado para armazenar o termo de busca digitado
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  // Gerando tipos únicos de café
+  // Gera uma lista de tipos únicos com base no array de cafés
   const uniqueTypes = [...new Set(coffeeList.map((coffee) => coffee.type))];
 
+  // Obtém os favoritos e a função para alternar favorito
   const { favorites, toggleFavorite } = useFavorites();
 
   // Filtrando a lista de cafés por tipo e por nome (descrição)
@@ -36,9 +42,6 @@ export default function Home() {
       <div className={styles.containerDois}>
         <h1 className={styles.coffeeTitle}>Nossos cafés</h1>
 
-        {/* Input de busca */}
-        
-
         {/* Botão de abrir filtros */}
         <div
           className={styles.containerDoisPlus}
@@ -50,6 +53,7 @@ export default function Home() {
 
       {showFilters && (
         <div className={styles.filtersContainer}>
+          {/* Input de busca */}
           <input
           type="text"
           placeholder="Buscar por nome..."
@@ -88,8 +92,8 @@ export default function Home() {
               details={coffee.details}
               price={coffee.price}
               quantity={1} 
-              increaseQuantity={() => {/* sua função de +1 quantidade */}}
-              decreaseQuantity={() => {/* sua função de -1 quantidade */}}
+              increaseQuantity={() => {/* função de +1 quantidade */}}
+              decreaseQuantity={() => {/* função de -1 quantidade */}}
               isFavorite={favorites.includes(coffee.description)}
               onToggleFavorite={() => toggleFavorite(coffee.description)}
             />

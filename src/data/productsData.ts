@@ -14,6 +14,8 @@ import arabe from "../assets/coffeeImage/arabe.svg";
 import irlandes from "../assets/coffeeImage/irlandês.svg";
 
 
+
+// Dados dos cafés
 const coffeeList = [
   {
     image: expresso,
