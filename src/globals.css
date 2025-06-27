@@ -15,6 +15,7 @@ body{
         @media (max-width: 480px){
         max-width: 480px;
     }
+    font-family: 'Sora', sans-serif;
 }
 
 a {
