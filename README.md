@@ -45,7 +45,7 @@ Projeto disponível em produção:
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/t-plus-coffee.git
+git clone https://github.com/seu-usuario/t-coffee.git
 
 ```
 2. Instale as dependências:
