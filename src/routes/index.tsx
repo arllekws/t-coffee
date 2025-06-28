@@ -4,6 +4,7 @@ import Cart from "../pages/Cart";
 import Admin from "../pages/Admin";
 import ProductDetailPage from "../pages/ProductDetailPage";
 import OrderDone from "../pages/OrderDone";
+import ErrorPage from "../pages/Error";
 import { FavoriteProvider } from "../contexts/FavoriteContext";
 import { CartProvider } from "../contexts/CartContext";
 import { AuthProvider } from "../contexts/AuthContext"; // Importa o AuthProvider
@@ -29,6 +30,7 @@ export default function Router() {
                     <Route path="/product/:description" element={<ProductDetailPage />} />
                     <Route path="/order-done" element={<OrderDone />} />
                     <Route path="/Admin" element={<Admin/>} />
+                    <Route path="*" element={<ErrorPage />} />
                   </Routes>  
                 </AddressProvider> 
               </CartProvider>
