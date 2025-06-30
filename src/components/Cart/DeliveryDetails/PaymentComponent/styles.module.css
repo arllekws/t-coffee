@@ -24,7 +24,7 @@
 }
 
 .paymentTypes button {
-  background-color: #eee3b5;
+  background-color: gray;
   border-color: black;
   padding: 10px 8px;
   text-align: center;
@@ -46,7 +46,7 @@
 .paymentTypes button.selected {
   background-color: #DBAC2C;
   color: white;
-  border: 2px dotted #8480a3;
+  border: 2px solid #8480A3;
 }
 
 .icon {

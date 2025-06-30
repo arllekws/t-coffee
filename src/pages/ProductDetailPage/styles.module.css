@@ -51,21 +51,30 @@
   color: #8D6E63;
   margin-bottom: 20px;
 }
-
-.quantityControls {
+.actionsContainer {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
+  align-items: center; /* Alinha verticalmente */
+  gap: 12px; /* Espaço entre os elementos */
+  flex-wrap: wrap; /* Opcional: quebra linha se não couber */
 }
 
-.quantityControls button {
-  background-color: #d7ccc8;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 18px;
+.quantityControls{
+  width: 10%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 400;
+    background-color: #E6E5E5;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.quantityControls button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #6F4C3E; /* Cor marrom */
 }
 
 .addToCartButton {

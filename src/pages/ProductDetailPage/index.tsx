@@ -66,7 +66,7 @@ export default function ProductDetailPage() {
 
         {/* Preço do produto */}
         <p className={styles.productPrice}>R$ {product.price.toFixed(2)}</p>
-
+      <div className={styles.actionsContainer}>
         {/* Controles de quantidade */}
         <div className={styles.quantityControls}>
           <button onClick={() => setQuantity(q => (q > 1 ? q - 1 : 1))}>-</button>
@@ -89,6 +89,7 @@ export default function ProductDetailPage() {
         >
           {isFavorite ? <FaHeart color="red" /> : <FaRegHeart color="gray" />}
         </button>
+        </div>
       </div>
     </>
   );
