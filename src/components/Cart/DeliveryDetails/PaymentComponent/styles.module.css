@@ -44,9 +44,9 @@
 }
 
 .paymentTypes button.selected {
-  background-color: #DBAC2C;
+  background-color: #D2A0FF;
   color: white;
-  border: 2px solid #8480A3;
+  border: 2px solid #C47F17; /* Borda mais escura quando selecionado */
 }
 
 .icon {
