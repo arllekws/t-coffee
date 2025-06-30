@@ -7,6 +7,7 @@ import { useFavorites } from '../../contexts/FavoriteContext';
 import { Link } from "react-router-dom";
 
 export default function CardCoffee({ image, type, description, details, price }: CardCoffeeProps) { 
+  const [clicked, setClicked] = useState(false); // novo estado para animação
   /* Funções/Componente do Cartao de café, que recebe as propriedades de imagem, tipo, descrição, detalhes e preço. */
   const [quantity, setQuantity] = useState(1); /* Estado que controla a quantidade de cafés selecionados*/
   const { addToCart } = useCart(); /* Função do Context UseCart que adiciona o café ao carrinho.*/ 
@@ -23,6 +24,9 @@ export default function CardCoffee({ image, type, description, details, price }:
       price,
       quantity
     });
+
+    setClicked(true); // ativa animação
+    setTimeout(() => setClicked(false), 300); // desativa depois de 0.3s
   }
   // Aumenta a quantidade de café
   function increaseQuantity() {
@@ -66,7 +70,10 @@ export default function CardCoffee({ image, type, description, details, price }:
         
         
           {/**Botão de adicionar no carrinho e quando clicar acontece a função de adicionar informação no carrinho*/}
-        <button className={styles.cartButton} onClick={handleAddToCart}>
+        <button
+          className={`${styles.cartButton} ${clicked ? styles.clicked : ''}`}
+          onClick={handleAddToCart}
+          >
           <FaShoppingCart />
         </button>
 

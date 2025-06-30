@@ -43,7 +43,7 @@ export default function PaymentComponent() {
           onClick={() => handleSelect("credito")}
           className={selectedPayment === "credito" ? styles.selected : ""} //Caso seja selecionado ele muda de cor
         >
-          <FaMoneyCheck /> CARTÃO DE CRÉDITO
+          <FaMoneyCheck size={15}/> CARTÃO DE CRÉDITO
         </button>
 
         <button
@@ -51,7 +51,7 @@ export default function PaymentComponent() {
           onClick={() => handleSelect("debito")}
           className={selectedPayment === "debito" ? styles.selected : ""}
         >
-          <CiMoneyCheck1 /> CARTÃO DE DÉBITO
+          <CiMoneyCheck1 size={20}/> CARTÃO DE DÉBITO
         </button>
 
         <button
@@ -59,7 +59,7 @@ export default function PaymentComponent() {
           onClick={() => handleSelect("dinheiro")}
           className={selectedPayment === "dinheiro" ? styles.selected : ""}
         >
-          <FaMoneyBill /> DINHEIRO
+          <FaMoneyBill size={15}/> DINHEIRO
         </button>
       </div>
     </div>
