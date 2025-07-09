@@ -3,7 +3,7 @@ import Icon2 from '../../assets/Icon2.svg';
 import Icon3 from '../../assets/Icon3.svg';
 import icon4 from '../../assets/icon4.svg';
 import styles from './styles.module.css';
-import Imagem from '../../assets/3rd2q.png';
+import Imagem_Merch from '../../assets/Imagem_Merch.svg';
 
 export default function Merchandising() {
   return (
@@ -37,7 +37,7 @@ export default function Merchandising() {
 
         </div>
         <div className={styles.MerchandisingImage}>
-            <img src={Imagem} alt="Cafés variados" />
+            <img src={Imagem_Merch} alt="Cafés variados" />
         </div>
     </div>
   )
