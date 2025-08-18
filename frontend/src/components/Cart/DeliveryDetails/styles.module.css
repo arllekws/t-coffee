@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  padding-top: 50px;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.rightSide {
+  padding-top: 55px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding-top: 50px;
+  }
+
+  .rightSide {
+    padding-top: 30px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  /* Estilo para telas tipo MacBook Air */
+
+  .container{
+    gap: 20px;
+  }
+
+  
+}
+

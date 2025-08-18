@@ -1,0 +1,73 @@
+.Container{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    gap: 100px;
+}
+
+
+.leftSide{
+    padding-left: 30px;
+    
+}
+
+.rightSide{
+  padding-top: 200px;
+}
+
+
+@media (max-width: 768px) {
+  .Container {
+    flex-direction: column;  /* Faz o layout empilhar os blocos um embaixo do outro */
+    gap: 30px;               /* Reduz o espaçamento no mobile */
+    align-items: center;     /* Centraliza os itens no mobile */
+    padding: 10px;
+  }
+
+  .leftSide
+  {
+    width: 100%;             /* Faz as duas colunas ocuparem a largura inteira no mobile */
+    padding-left: 0;
+  }
+
+  .rightSide {
+    max-width: 100%;
+  }
+}
+
+/* Para telas menores que 1024px (tablets e celulares) */
+@media (max-width: 1024px) {
+  .Container {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    padding: 10px;
+    padding-top: 160px;
+  }
+
+  .leftSide
+   {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .rightSide {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .Container {
+    max-width: 1600px;    /* Limita a largura máxima do conteúdo, pra não ficar muito esticado */
+    margin: 0 auto;        /* Centraliza o container na tela */
+    gap: 200px;            /* Mais espaço entre as colunas */
+  }
+
+  .leftSide, .rightSide {
+    padding: 40px;          /* Mais respiro nos lados */
+  }
+
+  .rightSide {
+    padding-top: 120px;     /* Mantém um bom topo */
+  }
+}
