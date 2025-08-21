@@ -1,7 +1,16 @@
-import { Column, Model, Table } from "sequelize-typescript";
+import {   Column, DataType, Default,  Model, PrimaryKey, Table } from "sequelize-typescript";
 
-@Table
+@Table({
+    tableName: "products",
+    timestamps: true
+})
 export class Products extends Model<Products>{
+
+    @PrimaryKey
+    @Default(DataType.UUIDV4)
+    @Column(DataType.UUID)
+    productId: string;
+
     @Column
     name: string;
 
@@ -10,4 +19,8 @@ export class Products extends Model<Products>{
 
     @Column
     description: string;
+
+    @Column({ type: DataType.ARRAY(DataType.STRING) })
+    ingredients: string[];
+   
 }

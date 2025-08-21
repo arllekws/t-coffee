@@ -4,7 +4,6 @@ import * as dotenv from 'dotenv';
 import { Products } from 'src/modules/products/products.entity';
 
 dotenv.config();
-console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
 @Module({
   imports: [
     SequelizeModule.forRoot({
@@ -19,6 +18,7 @@ console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
       ],
       logging: false,
       autoLoadModels: true,
+      synchronize:true,
     }),
   ],
   controllers: [],
