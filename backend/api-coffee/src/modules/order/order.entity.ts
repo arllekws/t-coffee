@@ -2,6 +2,7 @@ import { Model, Table, Column, DataType, PrimaryKey, Default, ForeignKey, Belong
 import { User } from "../user/user.entity";
 import { Address } from "../adress/adress.entity";
 import { PaymentMethod } from "../payment-method/payment-method.entity";
+import { OrderItem } from "../order-items/order-items.entity";
 
 @Table({ tableName: "orders", timestamps: true })
 export class Orders extends Model<Orders> {
@@ -23,6 +24,12 @@ export class Orders extends Model<Orders> {
   
   @BelongsTo(() => Address)
   address!: Address;
+
+  @ForeignKey(()=> OrderItem)
+  orderItemId!: string;
+
+  @BelongsTo(()=> OrderItem)
+  orderItem:OrderItem;
 
   @ForeignKey(() => PaymentMethod)
   @Column(DataType.UUID)
