@@ -1,4 +1,5 @@
-import {   Column, DataType, Default,  Model, PrimaryKey, Table } from "sequelize-typescript";
+import { Column, DataType, Default,   Model, PrimaryKey, Table } from "sequelize-typescript";
+
 
 @Table({
     tableName: "products",
@@ -22,5 +23,7 @@ export class Products extends Model<Products>{
 
     @Column({ type: DataType.ARRAY(DataType.STRING) })
     ingredients: string[];
+
+    
    
 }

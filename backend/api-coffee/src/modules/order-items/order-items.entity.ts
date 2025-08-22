@@ -14,7 +14,11 @@ export class OrderItem extends Model<OrderItem> {
   @Column(DataType.UUID)
   productId!: string;
 
-  @BelongsTo(() => Products)
+  @BelongsTo(() => Products,{
+    foreignKey:'productId',
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  }) 
   product!: Products;
 
   // FK para Orders

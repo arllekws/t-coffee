@@ -20,7 +20,7 @@ export class Orders extends Model<Orders> {
   @ForeignKey(() => Address)
   @Column(DataType.UUID)
   addressId!: string;
-
+  
   @BelongsTo(() => Address)
   address!: Address;
 
