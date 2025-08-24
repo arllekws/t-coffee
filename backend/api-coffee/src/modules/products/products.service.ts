@@ -16,4 +16,8 @@ export class ProductsService {
         const createProduct = await this.productModel.create(productDto as unknown as CreationAttributes<Products>);
         return createProduct;
     }
+
+    async findAll(){
+        return await this.productModel.findAll();
+    }
 }

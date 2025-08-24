@@ -39,5 +39,5 @@ export class Orders extends Model<Orders> {
   paymentMethod!: PaymentMethod;
 
   @Column(DataType.DATE)
-  order_date!: Date;
+  order_date!: Date | null;
 }

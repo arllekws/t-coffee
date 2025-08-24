@@ -1,6 +1,5 @@
 import { Column, DataType, Default,   Model, PrimaryKey, Table } from "sequelize-typescript";
 
-
 @Table({
     tableName: "products",
     timestamps: true
@@ -16,13 +15,10 @@ export class Products extends Model<Products>{
     name: string;
 
     @Column
-    price: number;
+    price: string;
 
     @Column
     description: string;
-
-    @Column({ type: DataType.ARRAY(DataType.STRING) })
-    ingredients: string[];
 
     
    

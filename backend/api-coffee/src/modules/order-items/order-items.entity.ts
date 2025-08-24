@@ -1,4 +1,13 @@
-import { Model, Table, Column, DataType, PrimaryKey, Default, ForeignKey, BelongsTo } from "sequelize-typescript";
+import {
+  Model,
+  Table,
+  Column,
+  DataType,
+  PrimaryKey,
+  Default,
+  ForeignKey,
+  BelongsTo,
+} from "sequelize-typescript";
 import { Products } from "../products/products.entity";
 import { Orders } from "../order/order.entity";
 
@@ -7,33 +16,35 @@ export class OrderItem extends Model<OrderItem> {
   @PrimaryKey
   @Default(DataType.UUIDV4)
   @Column(DataType.UUID)
-  orderItemId!: string;
+  declare orderItemId: string;
 
   // FK para Products
   @ForeignKey(() => Products)
   @Column(DataType.UUID)
-  productId!: string;
+  declare productId: string;
 
-  @BelongsTo(() => Products,{
-    foreignKey:'productId',
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
-  }) 
-  product!: Products;
+  @BelongsTo(() => Products, {
+    foreignKey: "productId",
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
+  declare product: Products;
 
   // FK para Orders
   @ForeignKey(() => Orders)
   @Column(DataType.UUID)
-  orderId!: string;
+  declare orderId: string | null;
 
-  @BelongsTo(() => Orders)
-  order!: Orders;
+  @BelongsTo(() => Orders, {
+    foreignKey: "orderId",
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
+  declare order: Orders;
 
-  @Column
-  quantity!: number;
+  @Column(DataType.INTEGER)
+  declare quantity: number;
 
-  @Column
-  price!: number;
-
-  
+  @Column(DataType.DECIMAL(10, 2))
+  declare price: number;
 }
