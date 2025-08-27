@@ -1,31 +1,49 @@
-import CardCoffee from "../../components/CardCoffee";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Header from "../../components/Header";
 import Merchandising from "../../components/Merchandising";
 import styles from "./styles.module.css";
 import { CiFilter } from "react-icons/ci";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFavorites } from "../../contexts/FavoriteContext";
-import coffeeList from "../../data/productsData";
-
+import CardCoffee from "../../components/CardCoffee";
+import type { CardCoffeeProps } from "../../@types/CardCoffee";
 
 export default function Home() {
-  // Estado para o filtro de tipo selecionado (ex: "Tradicional", "Especial")
+  const [products, setProducts] = useState<CardCoffeeProps[]>([]);
   const [selectedFilter, setSelectedFilter] = useState<string>("");
-
-  // Estado para mostrar ou esconder os filtros
   const [showFilters, setShowFilters] = useState<boolean>(false);
-
-  // Estado para armazenar o termo de busca digitado
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  // Gera uma lista de tipos únicos com base no array de cafés
-  const uniqueTypes = [...new Set(coffeeList.map((coffee) => coffee.type))];
-
-  // Obtém os favoritos e a função para alternar favorito
   const { favorites, toggleFavorite } = useFavorites();
 
-  // Filtrando a lista de cafés por tipo e por nome (descrição)
-  const filteredCoffeeList = coffeeList.filter((coffee) => {
+  // Busca os produtos da API
+  useEffect(() => {
+    fetch("http://localhost:3000/products/findall")
+      .then((res) => res.json())
+      .then((data) => {
+        const formatted: CardCoffeeProps[] = data.map((item: any) => ({
+          productId: item.productId,
+          imageUrl: item.imageUrl,
+          type: item.description,
+          description: item.name,
+          details: item.details,
+          price: parseFloat(item.price.replace(",", ".")),
+          quantity: 1,
+          increaseQuantity: () => {},
+          decreaseQuantity: () => {},
+          isFavorite: favorites.includes(item.description),
+          onToggleFavorite: () => toggleFavorite(item.description),
+        }));
+        setProducts(formatted);
+      })
+      .catch((err) => console.error(err));
+  }, [favorites, toggleFavorite]); // Recalcula favoritos quando mudar
+
+  // Lista de tipos únicos para os filtros
+  const uniqueTypes = [...new Set(products.map((coffee) => coffee.type))];
+
+  // Filtra produtos por tipo e por busca
+  const filteredProducts = products.filter((coffee) => {
     const matchesType = selectedFilter ? coffee.type === selectedFilter : true;
     const matchesName = coffee.description
       .toLowerCase()
@@ -37,12 +55,12 @@ export default function Home() {
     <div>
       <Header />
       <div className={styles.space}>
-      <Merchandising />
+        <Merchandising />
       </div>
+
       <div className={styles.containerDois}>
         <h1 className={styles.coffeeTitle}>Nossos cafés</h1>
 
-        {/* Botão de abrir filtros */}
         <div
           className={styles.containerDoisPlus}
           onClick={() => setShowFilters(!showFilters)}
@@ -53,14 +71,13 @@ export default function Home() {
 
       {showFilters && (
         <div className={styles.filtersContainer}>
-          {/* Input de busca */}
           <input
-          type="text"
-          placeholder="Buscar por nome..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className={styles.searchInput}
-        />
+            type="text"
+            placeholder="Buscar por nome..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className={styles.searchInput}
+          />
           {uniqueTypes.map((type) => (
             <button
               key={type}
@@ -80,23 +97,9 @@ export default function Home() {
       )}
 
       <br />
-
-      {/* Lista de Cafés */}
       <div className={styles.coffeeList}>
-        {filteredCoffeeList.map((coffee, index) => (
-          <CardCoffee
-              key={index}
-              image={coffee.image}
-              type={coffee.type}
-              description={coffee.description}
-              details={coffee.details}
-              price={coffee.price}
-              quantity={1} 
-              increaseQuantity={() => {/* função de +1 quantidade */}}
-              decreaseQuantity={() => {/* função de -1 quantidade */}}
-              isFavorite={favorites.includes(coffee.description)}
-              onToggleFavorite={() => toggleFavorite(coffee.description)}
-            />
+        {filteredProducts.map((coffee) => (
+          <CardCoffee key={coffee.productId} {...coffee} />
         ))}
       </div>
     </div>

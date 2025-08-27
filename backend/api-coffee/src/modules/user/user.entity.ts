@@ -6,6 +6,8 @@ export class User extends Model<User> {
   @Default(DataType.UUIDV4)
   @Column(DataType.UUID)
   userId!: string;
+  @Column(DataType.STRING) // Firebase UID (vem como string)
+  uid!: string;
 
   @Column
   name!: string;

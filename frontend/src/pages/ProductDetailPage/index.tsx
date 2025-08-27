@@ -77,7 +77,11 @@ export default function ProductDetailPage() {
         {/* Botão de adicionar ao carrinho */}
         <button
           className={styles.addToCartButton}
-          onClick={() => addToCart({ ...product, quantity })}
+          onClick={() => addToCart({
+            ...product, quantity,
+            productId: "",
+            imageUrl: ""
+          })}
         >
           Adicionar ao Carrinho
         </button>

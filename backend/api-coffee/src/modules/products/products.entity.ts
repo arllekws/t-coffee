@@ -20,6 +20,11 @@ export class Products extends Model<Products>{
     @Column
     description: string;
 
-    
+    @Column(DataType.STRING) // aqui vai a URL da imagem
+    imageUrl: string;
+
+    @Column(DataType.STRING) // aqui vai a URL da imagem
+    details: string;
+
    
 }

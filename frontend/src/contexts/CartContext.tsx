@@ -2,7 +2,8 @@ import { createContext, useContext, useState, type ReactNode, useEffect } from '
 
 // Define o tipo do produto que será armazenado no carrinho
 export type Product = {
-  image: string;
+  productId: string;
+  imageUrl: string;
   type: string;
   description: string;
   price: number;

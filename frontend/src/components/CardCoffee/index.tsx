@@ -6,7 +6,7 @@ import { useCart } from '../../contexts/CartContext.tsx';
 import { useFavorites } from '../../contexts/FavoriteContext';
 import { Link } from "react-router-dom";
 
-export default function CardCoffee({ image, type, description, details, price }: CardCoffeeProps) { 
+export default function CardCoffee({ type, description, details, price, imageUrl }: CardCoffeeProps) { 
   const [clicked, setClicked] = useState(false); // novo estado para animação
   /* Funções/Componente do Cartao de café, que recebe as propriedades de imagem, tipo, descrição, detalhes e preço. */
   const [quantity, setQuantity] = useState(1); /* Estado que controla a quantidade de cafés selecionados*/
@@ -18,11 +18,12 @@ export default function CardCoffee({ image, type, description, details, price }:
   function handleAddToCart() {
     //Adiciona ao carrinho os dados necessarios 
     addToCart({
-      image,
+      productId: description, // Usando descrição como ID temporariamente
+      imageUrl,
       type,
       description,
       price,
-      quantity
+      quantity,
     });
 
     setClicked(true); // ativa animação
@@ -46,7 +47,7 @@ export default function CardCoffee({ image, type, description, details, price }:
 
   return (
     <div className={styles.card}>
-      <img src={image} alt={type} className={styles.coffeeImage} />  {/**Recebe a imagem */}
+      <img src={imageUrl} alt={type} className={styles.coffeeImage} />  {/**Recebe a imagem */}
       <h3 className={styles.coffeeType}>{type}</h3> {/**Recebe o tipo do café */}
       <Link to={`/product/${description}`}> {/**Link para os detalhes mais aprofundados do café*/}
         <p className={styles.coffeeDescription}>{description}</p> {/**Recebe o nome do café */}
