@@ -42,7 +42,7 @@ export class ProductsService {
     // Convert price to string if it exists
     const updateData = {
       ...updateProductDto,
-      price: updateProductDto.price !== undefined ? String(updateProductDto.price) : undefined,
+      price: updateProductDto.price !== undefined ? Number(updateProductDto.price) : undefined,
     };
     await product.update(updateData);
     return product;

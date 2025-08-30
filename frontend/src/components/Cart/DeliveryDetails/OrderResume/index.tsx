@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useAddress } from "../../../../contexts/AdressContext";
 import { usePayment } from "../../../../contexts/PaymentContext";
 
+
 export default function OrderResume() {
   // Carrinho: itens e funções para alterar/remover/limpar/diminuir e aumentar
   const { cartItems, decreaseQuantity, increaseQuantity, removeFromCart, clearCart } = useCart();
@@ -45,7 +46,7 @@ export default function OrderResume() {
       {cartItems.map(item => (
         <div key={item.description} className={styles.description}>
           <div className={styles.OrderItem}>
-            <img src={item.image} alt={item.type} width={100} />
+            <img src={item.imageUrl} alt={item.type} width={100} />
             <div className={styles.typeandname}>
               <div className={styles.seila}>
                 <p>{item.description}</p>

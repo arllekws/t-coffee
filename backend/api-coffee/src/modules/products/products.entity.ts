@@ -14,8 +14,10 @@ export class Products extends Model<Products>{
     @Column
     name: string;
 
-    @Column
-    price: string;
+
+
+    @Column(DataType.FLOAT)
+    price: number;
 
     @Column
     description: string;

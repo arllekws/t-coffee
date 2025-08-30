@@ -3,7 +3,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useCart } from '../../contexts/CartContext';
 import "./styles.css";
-import test from "../../assets/Logoo.svg";
+import test from "../../assets/t + COFFE escuro_Prancheta 1 1.svg";
 import { useAuth } from "../../contexts/AuthContext";
 
 export default function Header() {

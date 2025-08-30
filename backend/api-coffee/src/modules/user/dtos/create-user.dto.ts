@@ -1,4 +1,4 @@
-import { IsNotEmpty } from "class-validator";
+import { IsNotEmpty, IsString } from "class-validator";
 
 export class CreateUserDto {
 
@@ -6,7 +6,11 @@ export class CreateUserDto {
     name: string;
 
     @IsNotEmpty()
-    email: number;
+    email: string;
+
+    @IsNotEmpty()
+    @IsString()
+    uid: string; // UID que vem do Firebase
 
 
 }

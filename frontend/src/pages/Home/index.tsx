@@ -27,7 +27,7 @@ export default function Home() {
           type: item.description,
           description: item.name,
           details: item.details,
-          price: parseFloat(item.price.replace(",", ".")),
+          price: parseFloat(String(item.price).replace(",", ".")),
           quantity: 1,
           increaseQuantity: () => {},
           decreaseQuantity: () => {},

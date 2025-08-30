@@ -12,9 +12,21 @@ export class UserService {
     ){}
 
     async create(userDto: CreateUserDto): Promise<User> {
-        const createUser = await this.UserModel.create(userDto as unknown as CreationAttributes<User>);
-        return createUser;
-    }
+  // Verifica se já existe usuário com o mesmo UID
+  const existingUser = await this.UserModel.findOne({
+    where: { uid: userDto.uid },
+  });
+
+  if (existingUser) {
+    return existingUser; // Se já existe, retorna
+  }
+
+  // Se não existe, cria
+  const createUser = await this.UserModel.create(
+    userDto as unknown as CreationAttributes<User>
+  );
+  return createUser;
+}
 
     async findAll(){
         return await this.UserModel.findAll();
