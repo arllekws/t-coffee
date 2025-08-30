@@ -9,7 +9,7 @@ export default function CartPage() {
     
    <div className={styles.Container}>
       <div className={styles.leftSide}>
-        <DeliveryDetails />
+        <DeliveryDetails cartItems={[]} />
       </div>
     </div>
   </div>

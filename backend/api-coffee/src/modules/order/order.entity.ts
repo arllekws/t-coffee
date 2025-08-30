@@ -1,4 +1,7 @@
-import { Model, Table, Column, DataType, PrimaryKey, Default, ForeignKey, BelongsTo } from "sequelize-typescript";
+import { 
+  Model, Table, Column, DataType, PrimaryKey, Default, 
+  ForeignKey, BelongsTo, HasMany 
+} from "sequelize-typescript";
 import { User } from "../user/user.entity";
 import { Address } from "../adress/adress.entity";
 import { PaymentMethod } from "../payment-method/payment-method.entity";
@@ -21,15 +24,9 @@ export class Orders extends Model<Orders> {
   @ForeignKey(() => Address)
   @Column(DataType.UUID)
   addressId!: string;
-  
+
   @BelongsTo(() => Address)
   address!: Address;
-
-  @ForeignKey(()=> OrderItem)
-  orderItemId!: string;
-
-  @BelongsTo(()=> OrderItem)
-  orderItem:OrderItem;
 
   @ForeignKey(() => PaymentMethod)
   @Column(DataType.UUID)
@@ -38,6 +35,10 @@ export class Orders extends Model<Orders> {
   @BelongsTo(() => PaymentMethod)
   paymentMethod!: PaymentMethod;
 
+  @Default(DataType.NOW)
   @Column(DataType.DATE)
-  order_date!: Date | null;
+  order_date!: Date;
+
+  @HasMany(() => OrderItem)
+  items!: OrderItem[];
 }

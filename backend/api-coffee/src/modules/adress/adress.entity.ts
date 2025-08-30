@@ -1,7 +1,6 @@
-import { Model, Table, Column, DataType, PrimaryKey, Default, ForeignKey, BelongsTo } from "sequelize-typescript";
-import { User } from "../user/user.entity";
+import { Column, Model, Table, DataType, PrimaryKey, Default } from 'sequelize-typescript';
 
-@Table({ tableName: "addresses" })
+@Table({ tableName: 'addresses' })
 export class Address extends Model<Address> {
   @PrimaryKey
   @Default(DataType.UUIDV4)
@@ -20,10 +19,6 @@ export class Address extends Model<Address> {
   @Column
   zipCode!: string;
 
-  @ForeignKey(() => User)
-  @Column(DataType.UUID)
+  @Column(DataType.STRING)
   userId!: string;
-
-  @BelongsTo(() => User)
-  user!: User;
 }
