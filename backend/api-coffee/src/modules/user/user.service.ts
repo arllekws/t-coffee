@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/sequelize';
 import { User } from './user.entity';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { CreationAttributes } from 'sequelize';
+import { UpdateUserDto } from './dtos/update-user.dto';
 
 @Injectable()
 export class UserService {
@@ -28,7 +29,30 @@ export class UserService {
   return createUser;
 }
 
-    async findAll(){
+  async findAll(){
         return await this.UserModel.findAll();
     }
+
+  async findOne(id: string) {
+  return await this.UserModel.findByPk(id);
+}
+
+async update(id: string, userDto: UpdateUserDto) {
+  const user = await this.UserModel.findByPk(id);
+  if (!user) {
+    throw new Error('Usuário não encontrado');
+  }
+  await user.update(userDto as unknown as CreationAttributes<User>);
+  return user;
+}
+
+async remove(id: string) {
+  const user = await this.UserModel.findByPk(id);
+  if (!user) {
+    throw new Error('Usuário não encontrado');
+  }
+  await user.destroy();
+  return { message: 'Usuário deletado com sucesso' };
+}
+
 }

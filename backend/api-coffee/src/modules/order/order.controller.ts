@@ -16,4 +16,9 @@ export class OrderController {
     async findAll() {
         return await this.orderService.findAll();
     }
+
+    @Get("findall2")
+    async findAll2() {
+        return await this.orderService.findAll2();
+    }
 }
